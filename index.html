@@ -144,6 +144,40 @@
   <!-- التواصل والروابط المهنية -->
   <section id="contact" class="max-w-5xl mx-auto px-5 py-12 mb-12">
     <div class="p-8 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-900/50 border border-slate-800 text-center">
-      <h2 class="text-2xl font-bold text-white mb
+      <h2 class="text-2xl font-bold text-white mb-3" data-en="Connect With Me" data-ar="تواصل معي">Connect With Me</h2>
+      <p class="text-slate-400 text-sm mb-6" data-en="Open to research collaborations, medical training opportunities, and academic networking." data-ar="متاح للتعاون البحثي، فرص التدريب الطبي، والتواصل الأكاديمي.">
+        Open to research collaborations, medical training opportunities, and academic networking.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 text-sm font-semibold">
+        <a href="mailto:your.email@example.com" class="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white transition">Email</a>
+        <a href="https://orcid.org/" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">ORCID</a>
+        <a href="https://linkedin.com/" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">LinkedIn</a>
+        <a href="https://t.me/" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">Telegram</a>
+      </div>
+    </div>
+  </section>
 
-        
+  <footer class="border-t border-slate-800/80 py-6 text-center text-xs text-slate-500">
+    © 2026 Abduljalil Al-Shaebi. All rights reserved.
+  </footer>
+
+  <script>
+    var btn = document.getElementById('langToggle');
+    var currentLang = 'en';
+    btn.onclick = function () {
+      currentLang = (currentLang === 'en') ? 'ar' : 'en';
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = (currentLang === 'ar') ? 'rtl' : 'ltr';
+      btn.textContent = (currentLang === 'en') ? 'عربي' : 'English';
+      var elements = document.querySelectorAll('[data-en]');
+      for (var i = 0; i < elements.length; i++) {
+        var text = elements[i].getAttribute('data-' + currentLang);
+        if (text) {
+          elements[i].textContent = text;
+        }
+      }
+    };
+  </script>
+</body>
+</html>
+
