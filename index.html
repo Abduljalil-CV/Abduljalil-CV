@@ -1,183 +1,444 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abduljalil Al-Shaebi | Medical Portfolio</title>
+  <title>Abduljalil Al-Shaebi | MBBS Candidate & Medical Researcher</title>
+  <meta name="description" content="Official academic and clinical portfolio of Abduljalil Al-Shaebi — 6th-Year Medical Student at Ibb University, Top 3 Academic Rank, Clinical & Public Health Researcher." />
+
+  <!-- Open Graph / معاينة الرابط على واتساب وتليجرام ولينكدإن -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Abduljalil Al-Shaebi | Medical & Research Portfolio" />
+  <meta property="og:description" content="6th-Year Medical Student (MBBS Candidate) • Top 3 Academic Rank • Public Health & Surgical Research Collaborator." />
+  <meta property="og:url" content="https://abduljalil-alshaebi.vercel.app" />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- Schema.org لأرشفة جوجل كباحث طبي -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Abduljalil Al-Shaebi",
+    "jobTitle": "Medical Student & Clinical Researcher",
+    "affiliation": {
+      "@type": "EducationalOrganization",
+      "name": "Ibb University - Faculty of Medicine and Health Sciences"
+    },
+    "url": "https://abduljalil-alshaebi.vercel.app"
+  }
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { darkMode: 'class' };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body { font-family:  Inter , sans-serif; scroll-behavior: smooth; }
-    [dir="rtl"] body { font-family:  Cairo , sans-serif; }
+    body { font-family: 'Inter', sans-serif; }
+    [dir="rtl"] body { font-family: 'Cairo', sans-serif; }
+    .fade-section { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-section.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500/30">
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 antialiased transition-colors duration-300 selection:bg-sky-500/30">
 
   <!-- الشريط العلوي -->
-  <nav class="sticky top-0 z-50 bg-slate-950/85 backdrop-blur border-b border-slate-800">
-    <div class="max-w-5xl mx-auto px-5 py-4 flex justify-between items-center">
-      <a href="#" class="font-bold text-lg tracking-wide text-white" data-en="Dr. Abduljalil" data-ar="د. عبدالجليل">Dr. Abduljalil</a>
-      <div class="flex items-center gap-5 text-sm text-slate-300">
-        <a href="#about" class="hover:text-sky-400 transition hidden sm:inline" data-en="About" data-ar="نبذة">About</a>
-        <a href="#rotations" class="hover:text-sky-400 transition hidden sm:inline" data-en="Clinical" data-ar="التدريب السريري">Clinical</a>
-        <a href="#research" class="hover:text-sky-400 transition hidden sm:inline" data-en="Research" data-ar="الأبحاث">Research</a>
-        <a href="#contact" class="hover:text-sky-400 transition hidden sm:inline" data-en="Contact" data-ar="التواصل">Contact</a>
-        <button id="langToggle" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-400 font-semibold border border-slate-700 transition">
+  <nav class="sticky top-0 z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <div class="max-w-5xl mx-auto px-5 py-3.5 flex justify-between items-center">
+      <a href="#" class="flex items-center gap-2.5 font-bold text-base md:text-lg tracking-tight text-slate-900 dark:text-white">
+        <span class="w-8 h-8 rounded-lg bg-sky-600 text-white flex items-center justify-center text-xs font-extrabold">AA</span>
+        <span data-en="Abduljalil Al-Shaebi" data-ar="عبدالجليل الشعيبي">Abduljalil Al-Shaebi</span>
+      </a>
+
+      <!-- روابط سطح المكتب -->
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#credentials" class="hover:text-sky-600 dark:hover:text-sky-400 transition" data-en="Education" data-ar="التعليم">Education</a>
+        <a href="#rotations" class="hover:text-sky-600 dark:hover:text-sky-400 transition" data-en="Clinical" data-ar="التدريب">Clinical</a>
+        <a href="#research" class="hover:text-sky-600 dark:hover:text-sky-400 transition" data-en="Research" data-ar="الأبحاث">Research</a>
+        <a href="#leadership" class="hover:text-sky-600 dark:hover:text-sky-400 transition" data-en="Leadership" data-ar="القيادة">Leadership</a>
+        <a href="#certificates" class="hover:text-sky-600 dark:hover:text-sky-400 transition" data-en="Certificates" data-ar="الشهادات">Certificates</a>
+        <a href="#contact" class="hover:text-sky-600 dark:hover:text-sky-400 transition" data-en="Contact" data-ar="التواصل">Contact</a>
+      </div>
+
+      <!-- أزرار التحكم (الوضع الليلي + اللغة + قائمة الجوال) -->
+      <div class="flex items-center gap-2">
+        <button id="themeToggle" aria-label="Toggle Theme" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-amber-400 border border-slate-200 dark:border-slate-700 transition">
+          <!-- أيقونة الشمس (تظهر في الوضع الداكن) -->
+          <svg id="sunIcon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          <!-- أيقونة القمر (تظهر في الوضع الفاتح) -->
+          <svg id="moonIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        </button>
+
+        <button id="langToggle" class="px-3 py-1.5 text-xs md:text-sm rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-sky-700 dark:text-sky-400 font-semibold border border-slate-200 dark:border-slate-700 transition">
           عربي
         </button>
+
+        <button id="menuToggle" aria-label="Menu" class="md:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- القائمة المنسدلة للجوال -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-5 py-3">
+      <div class="grid grid-cols-2 gap-2 text-sm font-medium text-slate-700 dark:text-slate-300">
+        <a href="#credentials" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" data-en="Education" data-ar="التعليم">Education</a>
+        <a href="#rotations" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" data-en="Clinical Rotations" data-ar="التدريب السريري">Clinical Rotations</a>
+        <a href="#research" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" data-en="Research" data-ar="الأبحاث">Research</a>
+        <a href="#leadership" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" data-en="Leadership" data-ar="القيادة والأنشطة">Leadership</a>
+        <a href="#certificates" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" data-en="Certificates" data-ar="الشهادات">Certificates</a>
+        <a href="#contact" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" data-en="Contact" data-ar="التواصل">Contact</a>
       </div>
     </div>
   </nav>
 
   <!-- الواجهة الرئيسية -->
-  <header class="max-w-5xl mx-auto px-5 py-16 md:py-24 flex flex-col-reverse md:flex-row items-center gap-10">
+  <header class="max-w-5xl mx-auto px-5 py-14 md:py-20 flex flex-col-reverse md:flex-row items-center gap-10">
     <div class="flex-1 text-center md:text-start">
-      <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 mb-4"
-            data-en="6th-Year Medical Student • Ibb University"
-            data-ar="طالب طب بشري - المستوى السادس • جامعة إب">
-        6th-Year Medical Student • Ibb University
-      </span>
-      <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-4"
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-semibold rounded-full bg-sky-50 dark:bg-sky-500/10 text-sky-700 dark:text-sky-400 border border-sky-200 dark:border-sky-500/20 mb-4">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span data-en="MBBS Candidate • 6th-Year Medical Student" data-ar="طالب طب بشري (المستوى السادس) • مرشح بكالوريوس الطب والجراحة">MBBS Candidate • 6th-Year Medical Student</span>
+      </div>
+
+      <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight mb-4"
           data-en="Abduljalil Al-Shaebi"
           data-ar="عبدالجليل الشعيبي">
         Abduljalil Al-Shaebi
       </h1>
-      <p class="text-slate-400 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto md:mx-0"
-         data-en="Dedicated final-year medical student passionate about clinical excellence, evidence-based medicine, and public health research."
-         data-ar="طالب طب بشري في السنة النهائية، مهتم بالتميز السريري، الطب المبني على البراهين، والبحث العلمي في مجال الصحة العامة.">
-        Dedicated final-year medical student passionate about clinical excellence, evidence-based medicine, and public health research.
+
+      <p class="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed mb-7 max-w-xl mx-auto md:mx-0"
+         data-en="Final-year medical student at Ibb University (Top 3 academic rank), committed to evidence-based clinical practice, epidemiological research, and medical education."
+         data-ar="طالب طب بشري في السنة النهائية بجامعة إب (الثالث على الدفعة)، مهتم بالممارسة السريرية المبنية على البراهين، الأبحاث الوبائية، والتعليم الطبي.">
+        Final-year medical student at Ibb University (Top 3 academic rank), committed to evidence-based clinical practice, epidemiological research, and medical education.
       </p>
+
       <div class="flex flex-wrap justify-center md:justify-start gap-3">
-        <a href="#contact" class="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold transition shadow-lg shadow-sky-900/30"
-           data-en="Get in Touch" data-ar="تواصل معي">Get in Touch</a>
-        <!-- استبدل الرابط أدناه برابط ملف الـ PDF لسيرتك الذاتية على Google Drive -->
-        <a href="#" target="_blank" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold border border-slate-700 transition"
-           data-en="Download CV (PDF)" data-ar="تحميل السيرة الذاتية (PDF)">Download CV (PDF)</a>
+        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-700 dark:hover:bg-sky-500 text-white font-semibold transition shadow-lg shadow-sky-600/20">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span data-en="Get in Touch" data-ar="تواصل معي">Get in Touch</span>
+        </a>
+        <!-- استبدل # برابط ملف الـ PDF لسيرتك الذاتية -->
+        <a href="#" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold border border-slate-300 dark:border-slate-700 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          <span data-en="Download CV (PDF)" data-ar="تحميل السيرة الذاتية">Download CV (PDF)</span>
+        </a>
       </div>
     </div>
 
-    <!-- مكان الصورة الشخصية (يمكنك استبدال الرابط بصورتك لاحقاً) -->
-    <div class="w-40 h-40 md:w-56 md:h-56 rounded-2xl bg-gradient-to-br from-sky-900/40 to-slate-800 border-2 border-slate-700 flex items-center justify-center overflow-hidden shadow-2xl shrink-0">
-      <span class="text-5xl font-bold text-sky-400">AA</span>
-      <!-- لإضافة صورتك احذف السطر أعلاه وفعل السطر التالي -->
+    <!-- الصورة الشخصية (ارفع صورتك باسم photo.jpg في GitHub وفعل وسم img أدناه) -->
+    <div class="relative w-40 h-40 md:w-56 md:h-56 rounded-3xl bg-gradient-to-br from-sky-100 to-slate-200 dark:from-sky-900/40 dark:to-slate-800 border-2 border-slate-200 dark:border-slate-700 flex items-center justify-center overflow-hidden shadow-2xl shrink-0">
+      <span class="text-5xl font-extrabold text-sky-600 dark:text-sky-400 tracking-wider">AA</span>
       <!-- <img src="photo.jpg" alt="Abduljalil Al-Shaebi" class="w-full h-full object-cover"> -->
     </div>
   </header>
 
   <!-- أرقام وإنجازات سريعة -->
-  <section id="about" class="max-w-5xl mx-auto px-5 py-8">
+  <section class="max-w-5xl mx-auto px-5 pb-10 fade-section">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 text-center">
-        <div class="text-2xl md:text-3xl font-bold text-sky-400">Top 3</div>
-        <div class="text-xs md:text-sm text-slate-400 mt-1" data-en="Academic Ranking" data-ar="الترتيب الأكاديمي">Academic Ranking</div>
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
+        <div class="text-2xl md:text-3xl font-extrabold text-sky-600 dark:text-sky-400" data-en="Top 3" data-ar="الثالث">Top 3</div>
+        <div class="text-xs md:text-sm text-slate-500 dark:text-slate-400 mt-1" data-en="Academic Cohort Rank" data-ar="الترتيب على الدفعة">Academic Cohort Rank</div>
       </div>
-      <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 text-center">
-        <div class="text-2xl md:text-3xl font-bold text-sky-400">5+</div>
-        <div class="text-xs md:text-sm text-slate-400 mt-1" data-en="Clinical Rotations" data-ar="دورات تدريب سريري">Clinical Rotations</div>
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
+        <div class="text-2xl md:text-3xl font-extrabold text-sky-600 dark:text-sky-400">5</div>
+        <div class="text-xs md:text-sm text-slate-500 dark:text-slate-400 mt-1" data-en="Core Clinical Rotations" data-ar="دورات سريرية أساسية">Core Clinical Rotations</div>
       </div>
-      <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 text-center">
-        <div class="text-2xl md:text-3xl font-bold text-sky-400">35+</div>
-        <div class="text-xs md:text-sm text-slate-400 mt-1" data-en="Medical Certificates" data-ar="شهادات طبية وبحثية">Medical Certificates</div>
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
+        <div class="text-2xl md:text-3xl font-extrabold text-sky-600 dark:text-sky-400">36+</div>
+        <div class="text-xs md:text-sm text-slate-500 dark:text-slate-400 mt-1" data-en="Medical Certificates" data-ar="شهادات طبية وبحثية">Medical Certificates</div>
       </div>
-      <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 text-center">
-        <div class="text-2xl md:text-3xl font-bold text-sky-400">2+</div>
-        <div class="text-xs md:text-sm text-slate-400 mt-1" data-en="Research Projects" data-ar="مشاريع بحثية">Research Projects</div>
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
+        <div class="text-2xl md:text-3xl font-extrabold text-sky-600 dark:text-sky-400">2+</div>
+        <div class="text-xs md:text-sm text-slate-500 dark:text-slate-400 mt-1" data-en="Research Collaborations" data-ar="مشاريع وأبحاث علمية">Research Collaborations</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- التعليم والمستشفيات التعليمية -->
+  <section id="credentials" class="max-w-5xl mx-auto px-5 py-10 fade-section">
+    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 border-s-4 border-sky-500 ps-3"
+        data-en="Education & Clinical Affiliations" data-ar="التعليم والمستشفيات التعليمية">Education & Clinical Affiliations</h2>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="md:col-span-2 p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="flex flex-wrap justify-between items-start gap-2 mb-2">
+          <div>
+            <h3 class="font-bold text-lg text-slate-900 dark:text-white" data-en="Bachelor of Medicine & Surgery (MBBS)" data-ar="بكالوريوس الطب والجراحة العامة (MBBS)">Bachelor of Medicine & Surgery (MBBS)</h3>
+            <p class="text-sm text-sky-600 dark:text-sky-400 font-medium" data-en="Faculty of Medicine & Health Sciences, Ibb University" data-ar="كلية الطب والعلوم الصحية — جامعة إب">Faculty of Medicine & Health Sciences, Ibb University</p>
+          </div>
+          <span class="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300" data-en="6th Year (Final)" data-ar="المستوى السادس (النهائي)">6th Year (Final)</span>
+        </div>
+        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mt-3"
+           data-en="Consistently ranked 3rd across all academic years. Clinical clerkships completed across Al-Sohoul General Hospital, Al-Qa'idah General Hospital, Motherhood & Childhood Hospital, Al-Noor Hospital, and Al-Majd Hospital."
+           data-ar="حاصل على الترتيب الثالث على الدفعة طوال سنوات الدراسة. أتممت التدريب السريري في مستشفيات: السحول العام، القاعدة العام، الأمومة والطفولة، النور، والمجد.">
+          Consistently ranked 3rd across all academic years. Clinical clerkships completed across Al-Sohoul General Hospital, Al-Qa'idah General Hospital, Motherhood & Childhood Hospital, Al-Noor Hospital, and Al-Majd Hospital.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+        <div>
+          <h3 class="font-bold text-base text-slate-900 dark:text-white mb-3" data-en="Languages & Tools" data-ar="اللغات والأدوات">Languages & Tools</h3>
+          <div class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+            <div class="flex justify-between"><span data-en="Arabic" data-ar="العربية">Arabic</span><span class="text-sky-600 dark:text-sky-400 font-semibold" data-en="Native" data-ar="اللغة الأم">Native</span></div>
+            <div class="flex justify-between"><span data-en="English" data-ar="الإنجليزية">English</span><span class="text-sky-600 dark:text-sky-400 font-semibold" data-en="Medical & Academic" data-ar="طبي وأكاديمي">Medical & Academic</span></div>
+          </div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-1.5">
+          <span class="text-xs px-2.5 py-1 rounded-md bg-sky-50 dark:bg-sky-500/10 text-sky-700 dark:text-sky-300 font-medium">REDCap</span>
+          <span class="text-xs px-2.5 py-1 rounded-md bg-sky-50 dark:bg-sky-500/10 text-sky-700 dark:text-sky-300 font-medium">GIS Mapping</span>
+          <span class="text-xs px-2.5 py-1 rounded-md bg-sky-50 dark:bg-sky-500/10 text-sky-700 dark:text-sky-300 font-medium">Biostatistics</span>
+          <span class="text-xs px-2.5 py-1 rounded-md bg-sky-50 dark:bg-sky-500/10 text-sky-700 dark:text-sky-300 font-medium">EBM</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- التدريب السريري -->
-  <section id="rotations" class="max-w-5xl mx-auto px-5 py-12">
-    <h2 class="text-2xl font-bold text-white mb-6 border-s-4 border-sky-500 ps-3"
+  <section id="rotations" class="max-w-5xl mx-auto px-5 py-10 fade-section">
+    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 border-s-4 border-sky-500 ps-3"
         data-en="Clinical Rotations" data-ar="التدريب السريري">Clinical Rotations</h2>
     <div class="grid md:grid-cols-2 gap-4">
-      <div class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800">
-        <h3 class="font-bold text-sky-400" data-en="General Surgery" data-ar="الجراحة العامة">General Surgery</h3>
-        <p class="text-sm text-slate-400 mt-1" data-en="Clinical clerkship covering surgical ward rounds, case presentations, and operative observation." data-ar="تدريب سريري يشمل المرور الجراحي، عرض الحالات، والملاحظة في غرف العمليات.">Clinical clerkship covering surgical ward rounds, case presentations, and operative observation.</p>
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="flex justify-between items-center mb-1.5">
+          <h3 class="font-bold text-sky-700 dark:text-sky-400" data-en="General Surgery" data-ar="الجراحة العامة">General Surgery</h3>
+          <span class="text-xs text-slate-500">2026</span>
+        </div>
+        <p class="text-sm text-slate-600 dark:text-slate-400" data-en="Surgical ward rounds, pre/post-operative patient assessment, case presentations, and operative theater observation." data-ar="المرور الجراحي، تقييم المرضى قبل وبعد العمليات، عرض الحالات، والملاحظة في غرف العمليات.">Surgical ward rounds, pre/post-operative patient assessment, case presentations, and operative theater observation.</p>
       </div>
-      <div class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800">
-        <h3 class="font-bold text-sky-400" data-en="Internal Medicine & Pediatrics" data-ar="الباطنية والأطفال">Internal Medicine & Pediatrics</h3>
-        <p class="text-sm text-slate-400 mt-1" data-en="History taking, physical examination, differential diagnosis, and inpatient follow-up." data-ar="أخذ القصة المرضية، الفحص السريري، التشخيص التفريقي، ومتابعة المرضى المرقدين.">History taking, physical examination, differential diagnosis, and inpatient follow-up.</p>
+
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="flex justify-between items-center mb-1.5">
+          <h3 class="font-bold text-sky-700 dark:text-sky-400" data-en="Internal Medicine & Pediatrics" data-ar="الباطنية وطب الأطفال">Internal Medicine & Pediatrics</h3>
+          <span class="text-xs text-slate-500">2026</span>
+        </div>
+        <p class="text-sm text-slate-600 dark:text-slate-400" data-en="Comprehensive history taking, systemic physical examination, differential diagnosis, and inpatient follow-up." data-ar="أخذ القصة المرضية الشاملة، الفحص السريري الدقيق، التشخيص التفريقي، ومتابعة المرضى المرقدين.">Comprehensive history taking, systemic physical examination, differential diagnosis, and inpatient follow-up.</p>
       </div>
-      <div class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800">
-        <h3 class="font-bold text-sky-400" data-en="Obstetrics & Gynecology" data-ar="النساء والتوليد">Obstetrics & Gynecology</h3>
-        <p class="text-sm text-slate-400 mt-1" data-en="Antenatal care, labor ward observation, and gynecological outpatient clinics." data-ar="متابعة الحمل، الملاحظة في قسم الولادة، والعيادات الخارجية للنساء والتوليد.">Antenatal care, labor ward observation, and gynecological outpatient clinics.</p>
+
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="flex justify-between items-center mb-1.5">
+          <h3 class="font-bold text-sky-700 dark:text-sky-400" data-en="Obstetrics & Gynecology" data-ar="النساء والتوليد">Obstetrics & Gynecology</h3>
+          <span class="text-xs text-slate-500">2026</span>
+        </div>
+        <p class="text-sm text-slate-600 dark:text-slate-400" data-en="Antenatal care clinics, labor ward observation, and gynecological outpatient consultations." data-ar="عيادات متابعة الحمل، الملاحظة في قسم الولادة، والعيادات الخارجية للنساء والتوليد.">Antenatal care clinics, labor ward observation, and gynecological outpatient consultations.</p>
       </div>
-      <div class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800">
-        <h3 class="font-bold text-sky-400" data-en="Community Medicine" data-ar="طب المجتمع">Community Medicine</h3>
-        <p class="text-sm text-slate-400 mt-1" data-en="Epidemiological fieldwork, public health data collection, and statistical analysis." data-ar="عمل ميداني وبائي، جمع بيانات الصحة العامة، والتحليل الإحصائي.">Epidemiological fieldwork, public health data collection, and statistical analysis.</p>
+
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="flex justify-between items-center mb-1.5">
+          <h3 class="font-bold text-sky-700 dark:text-sky-400" data-en="Community Medicine" data-ar="طب المجتمع والصحة العامة">Community Medicine</h3>
+          <span class="text-xs text-slate-500">2026</span>
+        </div>
+        <p class="text-sm text-slate-600 dark:text-slate-400" data-en="Epidemiological fieldwork, infectious disease surveillance, statistical analysis, and public health reporting." data-ar="العمل الميداني الوبائي، رصد الأمراض المعدية، التحليل الإحصائي، وإعداد تقارير الصحة العامة.">Epidemiological fieldwork, infectious disease surveillance, statistical analysis, and public health reporting.</p>
       </div>
     </div>
   </section>
 
   <!-- الأبحاث والمشاركات العلمية -->
-  <section id="research" class="max-w-5xl mx-auto px-5 py-12">
-    <h2 class="text-2xl font-bold text-white mb-6 border-s-4 border-sky-500 ps-3"
+  <section id="research" class="max-w-5xl mx-auto px-5 py-10 fade-section">
+    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 border-s-4 border-sky-500 ps-3"
         data-en="Research & Academic Work" data-ar="الأبحاث والمشاركات العلمية">Research & Academic Work</h2>
     <div class="space-y-4">
-      <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800">
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
         <div class="flex flex-wrap justify-between items-center gap-2 mb-2">
-          <h3 class="font-bold text-lg text-white" data-en="Graduation Research: Cholera Determinants" data-ar="بحث التخرج: محددات شدة الكوليرا">Graduation Research: Cholera Determinants</h3>
-          <span class="text-xs px-2.5 py-1 rounded-md bg-sky-500/10 text-sky-400">2026</span>
+          <h3 class="font-bold text-lg text-slate-900 dark:text-white" data-en="Graduation Research: Clinical Severity Determinants in Cholera" data-ar="بحث التخرج: محددات الشدة السريرية لدى مرضى الكوليرا">Graduation Research: Clinical Severity Determinants in Cholera</h3>
+          <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-sky-50 dark:bg-sky-500/10 text-sky-700 dark:text-sky-400">2026 • n = 200</span>
         </div>
-        <p class="text-sm text-slate-400 leading-relaxed"
-           data-en="Investigating socio-demographic, topographical, and WaSH determinants associated with clinical severity among cholera patients in Ibb Governorate (n=200)."
-           data-ar="دراسة المحددات الاجتماعية والديموغرافية والطوبوغرافية ومحددات المياه والإصحاح البيئي المرتبطة بالشدة السريرية لدى مرضى الكوليرا في محافظة إب (200 حالة).">
-          Investigating socio-demographic, topographical, and WaSH determinants associated with clinical severity among cholera patients in Ibb Governorate (n=200).
+        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
+           data-en="Investigated socio-demographic, topographical, and WaSH determinants associated with clinical severity among 200 cholera patients across Ibb Governorate hospitals, incorporating statistical modeling and GIS spatial hotspot mapping."
+           data-ar="دراسة ميدانية على 200 حالة كوليرا في مستشفيات محافظة إب لتحليل المحددات الاجتماعية والديموغرافية والطوبوغرافية ومحددات المياه والإصحاح البيئي (WaSH) المرتبطة بالشدة السريرية، مع التحليل الإحصائي وخرائط التوزيع المكاني (GIS).">
+          Investigated socio-demographic, topographical, and WaSH determinants associated with clinical severity among 200 cholera patients across Ibb Governorate hospitals, incorporating statistical modeling and GIS spatial hotspot mapping.
         </p>
       </div>
 
-      <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800">
+      <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
         <div class="flex flex-wrap justify-between items-center gap-2 mb-2">
-          <h3 class="font-bold text-lg text-white" data-en="International Research Collaborator — SurgWeek-2" data-ar="باحث مشارك — الدراسة الدولية SurgWeek-2">International Research Collaborator — SurgWeek-2</h3>
-          <span class="text-xs px-2.5 py-1 rounded-md bg-sky-500/10 text-sky-400">University of Birmingham</span>
+          <h3 class="font-bold text-lg text-slate-900 dark:text-white" data-en="International Research Collaborator — SurgWeek-2" data-ar="باحث مشارك — الدراسة الجراحية الدولية SurgWeek-2">International Research Collaborator — SurgWeek-2</h3>
+          <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-sky-50 dark:bg-sky-500/10 text-sky-700 dark:text-sky-400">University of Birmingham</span>
         </div>
-        <p class="text-sm text-slate-400 leading-relaxed"
-           data-en="Contributed to prospective surgical patient data collection and REDCap entry as part of an international collaborative cohort study."
-           data-ar="المساهمة في جمع بيانات الحالات الجراحية وإدخالها عبر منصة REDCap ضمن دراسة دولية مشتركة.">
-          Contributed to prospective surgical patient data collection and REDCap entry as part of an international collaborative cohort study.
+        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed"
+           data-en="Collaborated in an international prospective surgical cohort study led by the University of Birmingham, responsible for clinical case capture and standardized REDCap data entry."
+           data-ar="المشاركة كباحث متعاون في دراسة جراحية مستقبلية دولية بقيادة جامعة برمنغهام، شملت جمع بيانات الحالات الجراحية وإدخالها وفق المعايير البحثية عبر منصة REDCap.">
+          Collaborated in an international prospective surgical cohort study led by the University of Birmingham, responsible for clinical case capture and standardized REDCap data entry.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- القيادة والأنشطة والتعليم الطبي -->
+  <section id="leadership" class="max-w-5xl mx-auto px-5 py-10 fade-section">
+    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 border-s-4 border-sky-500 ps-3"
+        data-en="Leadership, Talks & Medical Education" data-ar="القيادة والندوات والتعليم الطبي">Leadership, Talks & Medical Education</h2>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <span class="text-xs font-semibold text-sky-600 dark:text-sky-400" data-en="Academic Leadership" data-ar="قيادة طلابية">Academic Leadership</span>
+        <h3 class="font-bold text-slate-900 dark:text-white mt-1 mb-2" data-en="Batch Representative & Scientific Committee" data-ar="ممثل الدفعة واللجنة العلمية">Batch Representative & Scientific Committee</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed" data-en="Served as clinical batch representative, member of the central scientific committee, and delivered the 5th-year top-achievers keynote address." data-ar="ممثل الدفعة السريري سابقاً، عضو اللجنة العلمية المركزية، وإلقاء كلمة الأوائل في السنة الخامسة.">Served as clinical batch representative, member of the central scientific committee, and delivered the 5th-year top-achievers keynote address.</p>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <span class="text-xs font-semibold text-sky-600 dark:text-sky-400" data-en="Scientific Seminar" data-ar="ندوة علمية">Scientific Seminar</span>
+        <h3 class="font-bold text-slate-900 dark:text-white mt-1 mb-2" data-en="Environmental Determinants of Cholera" data-ar="المحددات البيئية للكوليرا">Environmental Determinants of Cholera</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed" data-en="Presenting field research findings and spatial epidemiology insights at the Faculty of Medicine and Health Sciences (Dec 2026)." data-ar="عرض نتائج البحث الميداني والتحليل الوبائي المكاني في كلية الطب والعلوم الصحية (ديسمبر 2026).">Presenting field research findings and spatial epidemiology insights at the Faculty of Medicine and Health Sciences (Dec 2026).</p>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 shadow-sm">
+        <span class="text-xs font-semibold text-sky-600 dark:text-sky-400" data-en="Medical Education" data-ar="تعليم طبي">Medical Education</span>
+        <h3 class="font-bold text-slate-900 dark:text-white mt-1 mb-2" data-en="La'ali Sereereyya (Clinical Pearls)" data-ar="قناة لآلئ سريرية">La'ali Sereereyya (Clinical Pearls)</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed" data-en="Founder and editor of an educational Telegram channel sharing concise, high-yield clinical pearls for medical students." data-ar="مؤسس ومحرر قناة تعليمية على تليجرام لنشر خلاصات وفوائد سريرية مركزة لطلبة الطب.">Founder and editor of an educational Telegram channel sharing concise, high-yield clinical pearls for medical students.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- معرض الشهادات التفاعلي -->
+  <section id="certificates" class="max-w-5xl mx-auto px-5 py-10 fade-section">
+    <div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white border-s-4 border-sky-500 ps-3"
+          data-en="Selected Certifications (36+)" data-ar="شهادات مختارة (+36)">Selected Certifications (36+)</h2>
+      <div class="flex flex-wrap gap-2 text-xs font-semibold">
+        <button class="filter-btn active px-3.5 py-1.5 rounded-lg bg-sky-600 text-white transition" data-filter="all" data-en="All" data-ar="الكل">All</button>
+        <button class="filter-btn px-3.5 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition" data-filter="clinical" data-en="Clinical" data-ar="سريري">Clinical</button>
+        <button class="filter-btn px-3.5 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition" data-filter="public-health" data-en="Public Health" data-ar="صحة عامة">Public Health</button>
+        <button class="filter-btn px-3.5 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 transition" data-filter="research" data-en="Research" data-ar="بحث علمي">Research</button>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div class="cert-card p-5 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 shadow-sm" data-cat="clinical">
+        <span class="text-xs font-semibold text-sky-600 dark:text-sky-400">Medscape Education</span>
+        <h3 class="font-bold text-sm text-slate-900 dark:text-white mt-1" data-en="Clinical Medicine & Acute Care CME" data-ar="التعليم الطبي المستمر في الطب السريري">Clinical Medicine & Acute Care CME</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1" data-en="Evidence-based diagnostic and management updates." data-ar="تحديثات تشخيصية وعلاجية مبنية على البراهين.">Evidence-based diagnostic and management updates.</p>
+      </div>
+
+      <div class="cert-card p-5 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 shadow-sm" data-cat="public-health">
+        <span class="text-xs font-semibold text-sky-600 dark:text-sky-400">Coursera</span>
+        <h3 class="font-bold text-sm text-slate-900 dark:text-white mt-1" data-en="Epidemiology & Public Health" data-ar="علم الأوبئة والصحة العامة">Epidemiology & Public Health</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1" data-en="Outbreak investigation, WaSH, and disease control." data-ar="استقصاء الأوبئة، الإصحاح البيئي، ومكافحة الأمراض.">Outbreak investigation, WaSH, and disease control.</p>
+      </div>
+
+      <div class="cert-card p-5 rounded-2xl bg-white dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 shadow-sm" data-cat="research">
+        <span class="text-xs font-semibold text-sky-600 dark:text-sky-400">Coursera</span>
+        <h3 class="font-bold text-sm text-slate-900 dark:text-white mt-1" data-en="Clinical Research & Biostatistics" data-ar="البحث السريري والإحصاء الحيوي">Clinical Research & Biostatistics</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1" data-en="Study design, data integrity, and scientific writing." data-ar="تصميم الدراسات، جودة البيانات، والكتابة العلمية.">Study design, data integrity, and scientific writing.</p>
       </div>
     </div>
   </section>
 
   <!-- التواصل والروابط المهنية -->
-  <section id="contact" class="max-w-5xl mx-auto px-5 py-12 mb-12">
-    <div class="p-8 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-900/50 border border-slate-800 text-center">
-      <h2 class="text-2xl font-bold text-white mb-3" data-en="Connect With Me" data-ar="تواصل معي">Connect With Me</h2>
-      <p class="text-slate-400 text-sm mb-6" data-en="Open to research collaborations, medical training opportunities, and academic networking." data-ar="متاح للتعاون البحثي، فرص التدريب الطبي، والتواصل الأكاديمي.">
-        Open to research collaborations, medical training opportunities, and academic networking.
+  <section id="contact" class="max-w-5xl mx-auto px-5 py-10 mb-10 fade-section">
+    <div class="p-8 md:p-10 rounded-3xl bg-white dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-900/60 border border-slate-200 dark:border-slate-800 text-center shadow-sm">
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2" data-en="Connect With Me" data-ar="تواصل معي">Connect With Me</h2>
+      <p class="text-slate-600 dark:text-slate-400 text-sm mb-7 max-w-md mx-auto" data-en="Open to international research collaborations, clinical electives, and academic networking." data-ar="متاح للتعاون البحثي الدولي، فرص التدريب السريري، والتواصل الأكاديمي.">
+        Open to international research collaborations, clinical electives, and academic networking.
       </p>
       <div class="flex flex-wrap justify-center gap-3 text-sm font-semibold">
-        <a href="mailto:your.email@example.com" class="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white transition">Email</a>
-        <a href="https://orcid.org/" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">ORCID</a>
-        <a href="https://linkedin.com/" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">LinkedIn</a>
-        <a href="https://t.me/" target="_blank" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">Telegram</a>
+        <!-- استبدل الروابط أدناه بروابطك الفعلية -->
+        <a href="mailto:your.email@example.com" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white transition shadow-md shadow-sky-600/20">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span>Email</span>
+        </a>
+        <a href="https://orcid.org/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition">
+          <span class="w-2.5 h-2.5 rounded-full bg-lime-500"></span>
+          <span>ORCID</span>
+        </a>
+        <a href="https://linkedin.com/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition">
+          <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://t.me/" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition">
+          <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
+          <span>Telegram</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <footer class="border-t border-slate-800/80 py-6 text-center text-xs text-slate-500">
+  <footer class="border-t border-slate-200 dark:border-slate-800/80 py-6 text-center text-xs text-slate-500">
     © 2026 Abduljalil Al-Shaebi. All rights reserved.
   </footer>
 
+  <!-- الأكواد التفاعلية (اللغة + الوضع الليلي + القائمة + الفلترة + الحركات) -->
   <script>
-    var btn = document.getElementById('langToggle');
+    // 1. تبديل اللغة
+    var langBtn = document.getElementById('langToggle');
     var currentLang = 'en';
-    btn.onclick = function () {
+    langBtn.onclick = function () {
       currentLang = (currentLang === 'en') ? 'ar' : 'en';
       document.documentElement.lang = currentLang;
       document.documentElement.dir = (currentLang === 'ar') ? 'rtl' : 'ltr';
-      btn.textContent = (currentLang === 'en') ? 'عربي' : 'English';
-      var elements = document.querySelectorAll('[data-en]');
-      for (var i = 0; i < elements.length; i++) {
-        var text = elements[i].getAttribute('data-' + currentLang);
-        if (text) {
-          elements[i].textContent = text;
-        }
+      langBtn.textContent = (currentLang === 'en') ? 'عربي' : 'English';
+      var els = document.querySelectorAll('[data-en]');
+      for (var i = 0; i < els.length; i++) {
+        var val = els[i].getAttribute('data-' + currentLang);
+        if (val) { els[i].textContent = val; }
       }
     };
+
+    // 2. تبديل الوضع الفاتح والداكن
+    var themeBtn = document.getElementById('themeToggle');
+    var sunIcon = document.getElementById('sunIcon');
+    var moonIcon = document.getElementById('moonIcon');
+    themeBtn.onclick = function () {
+      var html = document.documentElement;
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+      } else {
+        html.classList.add('dark');
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+      }
+    };
+
+    // 3. قائمة الجوال
+    var menuBtn = document.getElementById('menuToggle');
+    var mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.onclick = function () {
+      mobileMenu.classList.toggle('hidden');
+    };
+    var mobileLinks = document.querySelectorAll('.mobile-link');
+    for (var m = 0; m < mobileLinks.length; m++) {
+      mobileLinks[m].onclick = function () {
+        mobileMenu.classList.add('hidden');
+      };
+    }
+
+    // 4. فلترة الشهادات
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var certCards = document.querySelectorAll('.cert-card');
+    for (var f = 0; f < filterBtns.length; f++) {
+      filterBtns[f].onclick = function () {
+        var filter = this.getAttribute('data-filter');
+        for (var j = 0; j < filterBtns.length; j++) {
+          filterBtns[j].classList.remove('bg-sky-600', 'text-white');
+          filterBtns[j].classList.add('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        }
+        this.classList.remove('bg-slate-200', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        this.classList.add('bg-sky-600', 'text-white');
+
+        for (var c = 0; c < certCards.length; c++) {
+          var cat = certCards[c].getAttribute('data-cat');
+          if (filter === 'all' || cat === filter) {
+            certCards[c].style.display = 'block';
+          } else {
+            certCards[c].style.display = 'none';
+          }
+        }
+      };
+    }
+
+    // 5. حركة الظهور الناعمة
+    var sections = document.querySelectorAll('.fade-section');
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        for (var e = 0; e < entries.length; e++) {
+          if (entries[e].isIntersecting) {
+            entries[e].target.classList.add('visible');
+          }
+        }
+      }, { threshold: 0.08 });
+      for (var s = 0; s < sections.length; s++) { obs.observe(sections[s]); }
+    } else {
+      for (var s2 = 0; s2 < sections.length; s2++) { sections[s2].classList.add('visible'); }
+    }
   </script>
 </body>
 </html>
-
