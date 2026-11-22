@@ -49,7 +49,7 @@
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 antialiased transition-colors duration-300 selection:bg-sky-500/30">
 
   <!-- الشريط العلوي -->
-  <nav class="sticky top-0 z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+  <nav class="sticky top-0 z-40 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
     <div class="max-w-5xl mx-auto px-5 py-3.5 flex justify-between items-center">
       <a href="#" class="flex items-center gap-2.5 font-bold text-base md:text-lg tracking-tight text-slate-900 dark:text-white">
         <span class="w-8 h-8 rounded-lg bg-sky-600 text-white flex items-center justify-center text-xs font-extrabold">AA</span>
@@ -82,19 +82,26 @@
         </button>
       </div>
     </div>
-
-    <!-- القائمة المنسدلة للجوال -->
-    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-5 py-3">
-      <div class="grid grid-cols-2 gap-2 text-sm font-medium text-slate-700 dark:text-slate-300">
-        <a href="#credentials" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" data-en="Education" data-ar="التعليم">Education</a>
-        <a href="#rotations" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" data-en="Clinical Rotations" data-ar="التدريب السريري">Clinical Rotations</a>
-        <a href="#research" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" data-en="Research" data-ar="الأبحاث">Research</a>
-        <a href="#leadership" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" data-en="Leadership" data-ar="القيادة والأنشطة">Leadership</a>
-        <a href="#certificates" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" data-en="Certificates" data-ar="الشهادات">Certificates</a>
-        <a href="#contact" class="mobile-link py-2 px-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900" data-en="Contact" data-ar="التواصل">Contact</a>
-      </div>
-    </div>
   </nav>
+
+  <!-- القائمة العمودية الجانبية للجوال -->
+  <div id="menuOverlay" class="hidden fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-sm md:hidden"></div>
+  <aside id="mobileMenu" class="hidden fixed top-0 end-0 z-50 h-full w-64 bg-white dark:bg-slate-950 border-s border-slate-200 dark:border-slate-800 shadow-2xl p-5 flex-col md:hidden">
+    <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-200 dark:border-slate-800">
+      <span class="font-bold text-sm text-slate-900 dark:text-white" data-en="Navigation" data-ar="الأقسام">Navigation</span>
+      <button id="closeMenu" aria-label="Close Menu" class="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="flex flex-col gap-1.5 text-sm font-medium text-slate-700 dark:text-slate-300">
+      <a href="#credentials" class="mobile-link py-2.5 px-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-sky-600 dark:hover:text-sky-400 transition" data-en="Education" data-ar="التعليم">Education</a>
+      <a href="#rotations" class="mobile-link py-2.5 px-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-sky-600 dark:hover:text-sky-400 transition" data-en="Clinical Rotations" data-ar="التدريب السريري">Clinical Rotations</a>
+      <a href="#research" class="mobile-link py-2.5 px-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-sky-600 dark:hover:text-sky-400 transition" data-en="Research" data-ar="الأبحاث">Research</a>
+      <a href="#leadership" class="mobile-link py-2.5 px-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-sky-600 dark:hover:text-sky-400 transition" data-en="Leadership" data-ar="القيادة والأنشطة">Leadership</a>
+      <a href="#certificates" class="mobile-link py-2.5 px-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-sky-600 dark:hover:text-sky-400 transition" data-en="Certificates" data-ar="الشهادات">Certificates</a>
+      <a href="#contact" class="mobile-link py-2.5 px-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-900 hover:text-sky-600 dark:hover:text-sky-400 transition" data-en="Contact" data-ar="التواصل">Contact</a>
+    </div>
+  </aside>
 
   <!-- الواجهة الرئيسية -->
   <header class="max-w-5xl mx-auto px-5 py-14 md:py-20 flex flex-col-reverse md:flex-row items-center gap-10">
@@ -449,7 +456,7 @@
     © 2026 Abduljalil Al-Shaebi. All rights reserved.
   </footer>
 
-  <!-- الأكواد التفاعلية (اللغة + الوضع الليلي + القائمة + الفلترة + الحركات) -->
+  <!-- الأكواد التفاعلية (اللغة + الوضع الليلي + القائمة الجانبية + الفلترة + الحركات) -->
   <script>
     // 1. تبديل اللغة
     var langBtn = document.getElementById('langToggle');
@@ -483,17 +490,30 @@
       }
     };
 
-    // 3. قائمة الجوال
+    // 3. قائمة الجوال العمودية الجانبية
     var menuBtn = document.getElementById('menuToggle');
+    var closeMenuBtn = document.getElementById('closeMenu');
     var mobileMenu = document.getElementById('mobileMenu');
-    menuBtn.onclick = function () {
-      mobileMenu.classList.toggle('hidden');
-    };
+    var menuOverlay = document.getElementById('menuOverlay');
+
+    function openDrawer() {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+      menuOverlay.classList.remove('hidden');
+    }
+    function closeDrawer() {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+      menuOverlay.classList.add('hidden');
+    }
+
+    menuBtn.onclick = openDrawer;
+    closeMenuBtn.onclick = closeDrawer;
+    menuOverlay.onclick = closeDrawer;
+
     var mobileLinks = document.querySelectorAll('.mobile-link');
     for (var m = 0; m < mobileLinks.length; m++) {
-      mobileLinks[m].onclick = function () {
-        mobileMenu.classList.add('hidden');
-      };
+      mobileLinks[m].onclick = closeDrawer;
     }
 
     // 4. فلترة الشهادات
