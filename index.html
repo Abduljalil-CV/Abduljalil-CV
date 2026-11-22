@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abduljalil Al-Shaebi | Medical Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family:  Inter , sans-serif; scroll-behavior: smooth; }
+    [dir="rtl"] body { font-family:  Cairo , sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500/30">
+
+  <!-- الشريط العلوي -->
+  <nav class="sticky top-0 z-50 bg-slate-950/85 backdrop-blur border-b border-slate-800">
+    <div class="max-w-5xl mx-auto px-5 py-4 flex justify-between items-center">
+      <a href="#" class="font-bold text-lg tracking-wide text-white" data-en="Dr. Abduljalil" data-ar="د. عبدالجليل">Dr. Abduljalil</a>
+      <div class="flex items-center gap-5 text-sm text-slate-300">
+        <a href="#about" class="hover:text-sky-400 transition hidden sm:inline" data-en="About" data-ar="نبذة">About</a>
+        <a href="#rotations" class="hover:text-sky-400 transition hidden sm:inline" data-en="Clinical" data-ar="التدريب السريري">Clinical</a>
+        <a href="#research" class="hover:text-sky-400 transition hidden sm:inline" data-en="Research" data-ar="الأبحاث">Research</a>
+        <a href="#contact" class="hover:text-sky-400 transition hidden sm:inline" data-en="Contact" data-ar="التواصل">Contact</a>
+        <button id="langToggle" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-400 font-semibold border border-slate-700 transition">
+          عربي
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- الواجهة الرئيسية -->
+  <header class="max-w-5xl mx-auto px-5 py-16 md:py-24 flex flex-col-reverse md:flex-row items-center gap-10">
+    <div class="flex-1 text-center md:text-start">
+      <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 mb-4"
+            data-en="6th-Year Medical Student • Ibb University"
+            data-ar="طالب طب بشري - المستوى السادس • جامعة إب">
+        6th-Year Medical Student • Ibb University
+      </span>
+      <h1 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-4"
+          data-en="Abduljalil Al-Shaebi"
+          data-ar="عبدالجليل الشعيبي">
+        Abduljalil Al-Shaebi
+      </h1>
+      <p class="text-slate-400 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto md:mx-0"
+         data-en="Dedicated final-year medical student passionate about clinical excellence, evidence-based medicine, and public health research."
+         data-ar="طالب طب بشري في السنة النهائية، مهتم بالتميز السريري، الطب المبني على البراهين، والبحث العلمي في مجال الصحة العامة.">
+        Dedicated final-year medical student passionate about clinical excellence, evidence-based medicine, and public health research.
+      </p>
+      <div class="flex flex-wrap justify-center md:justify-start gap-3">
+        <a href="#contact" class="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold transition shadow-lg shadow-sky-900/30"
+           data-en="Get in Touch" data-ar="تواصل معي">Get in Touch</a>
+        <!-- استبدل الرابط أدناه برابط ملف الـ PDF لسيرتك الذاتية على Google Drive -->
+        <a href="#" target="_blank" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold border border-slate-700 transition"
+           data-en="Download CV (PDF)" data-ar="تحميل السيرة الذاتية (PDF)">Download CV (PDF)</a>
+      </div>
+    </div>
+
+    <!-- مكان الصورة الشخصية (يمكنك استبدال الرابط بصورتك لاحقاً) -->
+    <div class="w-40 h-40 md:w-56 md:h-56 rounded-2xl bg-gradient-to-br from-sky-900/40 to-slate-800 border-2 border-slate-700 flex items-center justify-center overflow-hidden shadow-2xl shrink-0">
+      <span class="text-5xl font-bold text-sky-400">AA</span>
+      <!-- لإضافة صورتك احذف السطر أعلاه وفعل السطر التالي -->
+      <!-- <img src="photo.jpg" alt="Abduljalil Al-Shaebi" class="w-full h-full object-cover"> -->
+    </div>
+  </header>
+
+  <!-- أرقام وإنجازات سريعة -->
+  <section id="about" class="max-w-5xl mx-auto px-5 py-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 text-center">
+        <div class="text-2xl md:text-3xl font-bold text-sky-400">Top 3</div>
+        <div class="text-xs md:text-sm text-slate-400 mt-1" data-en="Academic Ranking" data-ar="الترتيب الأكاديمي">Academic Ranking</div>
+      </div>
+      <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 text-center">
+        <div class="text-2xl md:text-3xl font-bold text-sky-400">5+</div>
+        <div class="text-xs md:text-sm text-slate-400 mt-1" data-en="Clinical Rotations" data-ar="دورات تدريب سريري">Clinical Rotations</div>
+      </div>
+      <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 text-center">
+        <div class="text-2xl md:text-3xl font-bold text-sky-400">35+</div>
+        <div class="text-xs md:text-sm text-slate-400 mt-1" data-en="Medical Certificates" data-ar="شهادات طبية وبحثية">Medical Certificates</div>
+      </div>
+      <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 text-center">
+        <div class="text-2xl md:text-3xl font-bold text-sky-400">2+</div>
+        <div class="text-xs md:text-sm text-slate-400 mt-1" data-en="Research Projects" data-ar="مشاريع بحثية">Research Projects</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- التدريب السريري -->
+  <section id="rotations" class="max-w-5xl mx-auto px-5 py-12">
+    <h2 class="text-2xl font-bold text-white mb-6 border-s-4 border-sky-500 ps-3"
+        data-en="Clinical Rotations" data-ar="التدريب السريري">Clinical Rotations</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800">
+        <h3 class="font-bold text-sky-400" data-en="General Surgery" data-ar="الجراحة العامة">General Surgery</h3>
+        <p class="text-sm text-slate-400 mt-1" data-en="Clinical clerkship covering surgical ward rounds, case presentations, and operative observation." data-ar="تدريب سريري يشمل المرور الجراحي، عرض الحالات، والملاحظة في غرف العمليات.">Clinical clerkship covering surgical ward rounds, case presentations, and operative observation.</p>
+      </div>
+      <div class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800">
+        <h3 class="font-bold text-sky-400" data-en="Internal Medicine & Pediatrics" data-ar="الباطنية والأطفال">Internal Medicine & Pediatrics</h3>
+        <p class="text-sm text-slate-400 mt-1" data-en="History taking, physical examination, differential diagnosis, and inpatient follow-up." data-ar="أخذ القصة المرضية، الفحص السريري، التشخيص التفريقي، ومتابعة المرضى المرقدين.">History taking, physical examination, differential diagnosis, and inpatient follow-up.</p>
+      </div>
+      <div class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800">
+        <h3 class="font-bold text-sky-400" data-en="Obstetrics & Gynecology" data-ar="النساء والتوليد">Obstetrics & Gynecology</h3>
+        <p class="text-sm text-slate-400 mt-1" data-en="Antenatal care, labor ward observation, and gynecological outpatient clinics." data-ar="متابعة الحمل، الملاحظة في قسم الولادة، والعيادات الخارجية للنساء والتوليد.">Antenatal care, labor ward observation, and gynecological outpatient clinics.</p>
+      </div>
+      <div class="p-5 rounded-2xl bg-slate-900/70 border border-slate-800">
+        <h3 class="font-bold text-sky-400" data-en="Community Medicine" data-ar="طب المجتمع">Community Medicine</h3>
+        <p class="text-sm text-slate-400 mt-1" data-en="Epidemiological fieldwork, public health data collection, and statistical analysis." data-ar="عمل ميداني وبائي، جمع بيانات الصحة العامة، والتحليل الإحصائي.">Epidemiological fieldwork, public health data collection, and statistical analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- الأبحاث والمشاركات العلمية -->
+  <section id="research" class="max-w-5xl mx-auto px-5 py-12">
+    <h2 class="text-2xl font-bold text-white mb-6 border-s-4 border-sky-500 ps-3"
+        data-en="Research & Academic Work" data-ar="الأبحاث والمشاركات العلمية">Research & Academic Work</h2>
+    <div class="space-y-4">
+      <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800">
+        <div class="flex flex-wrap justify-between items-center gap-2 mb-2">
+          <h3 class="font-bold text-lg text-white" data-en="Graduation Research: Cholera Determinants" data-ar="بحث التخرج: محددات شدة الكوليرا">Graduation Research: Cholera Determinants</h3>
+          <span class="text-xs px-2.5 py-1 rounded-md bg-sky-500/10 text-sky-400">2026</span>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed"
+           data-en="Investigating socio-demographic, topographical, and WaSH determinants associated with clinical severity among cholera patients in Ibb Governorate (n=200)."
+           data-ar="دراسة المحددات الاجتماعية والديموغرافية والطوبوغرافية ومحددات المياه والإصحاح البيئي المرتبطة بالشدة السريرية لدى مرضى الكوليرا في محافظة إب (200 حالة).">
+          Investigating socio-demographic, topographical, and WaSH determinants associated with clinical severity among cholera patients in Ibb Governorate (n=200).
+        </p>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800">
+        <div class="flex flex-wrap justify-between items-center gap-2 mb-2">
+          <h3 class="font-bold text-lg text-white" data-en="International Research Collaborator — SurgWeek-2" data-ar="باحث مشارك — الدراسة الدولية SurgWeek-2">International Research Collaborator — SurgWeek-2</h3>
+          <span class="text-xs px-2.5 py-1 rounded-md bg-sky-500/10 text-sky-400">University of Birmingham</span>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed"
+           data-en="Contributed to prospective surgical patient data collection and REDCap entry as part of an international collaborative cohort study."
+           data-ar="المساهمة في جمع بيانات الحالات الجراحية وإدخالها عبر منصة REDCap ضمن دراسة دولية مشتركة.">
+          Contributed to prospective surgical patient data collection and REDCap entry as part of an international collaborative cohort study.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- التواصل والروابط المهنية -->
+  <section id="contact" class="max-w-5xl mx-auto px-5 py-12 mb-12">
+    <div class="p-8 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-900/50 border border-slate-800 text-center">
+      <h2 class="text-2xl font-bold text-white mb
+
+        
